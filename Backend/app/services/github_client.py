@@ -53,14 +53,12 @@ def fetch_repo_info(url: str) -> ReadmeInfo:
 
     languages = list(langs_resp.json().keys()) 
     languages_str = ", ".join(languages) if languages else "Not detected"
-    techstack = languages_str
-    print (techstack)
+    repo_langs = languages_str
+
     return ReadmeInfo(
         repo_url = url,
         repo_name = name,
         repo_owner = owner,
-        repo_techstack = techstack,
+        repo_languages = repo_langs,
         repo_summary = repo_data.get("description") or "No description provided."
     )
-
-fetch_repo_info("https://github.com/charliegotcodes/SpotifyPlaylistGeneratorPy")
